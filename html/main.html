@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman Game</title>
+<div id = answerArea></div>
+
+
+</head>
+<body>
+<script src="../js/Gameboard.js"></script>
+<script src="../js/Answer.js"></script>
+<script>
+let answer = new Answer();
+let difficulty = ["Easy","Medium","Hard"];
+let category = ["Clothes","Food"];
+answer.setAnswer("Hollywood");
+answer.setCategory(category[0]);
+answer.setDifficulty(difficulty[1]);
+
+let gameBoard = new GameBoard();
+gameBoard.drawCharacterButton();
+gameBoard.drawAnswerArea(answer);
+let getClickCharacter = function (character) {
+    console.log(character);
+}
+</script>
+</body>
+</html>
