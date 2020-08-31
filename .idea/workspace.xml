@@ -10,7 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3684c74-1134-4737-b0ba-ac7ad49a18e2" name="Default Changelist" comment="" />
+    <list default="true" id="c3684c74-1134-4737-b0ba-ac7ad49a18e2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Class Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Class Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Gameboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Gameboard.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +41,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lesson16-OOP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\html" />
+      <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\css" />
       <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\js" />
       <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\assets" />
     </key>
@@ -55,7 +65,8 @@
       <updated>1598606275047</updated>
       <workItem from="1598606276139" duration="2995000" />
       <workItem from="1598621384397" duration="661000" />
-      <workItem from="1598668216299" duration="17797000" />
+      <workItem from="1598668216299" duration="18130000" />
+      <workItem from="1598838828923" duration="15202000" />
     </task>
     <servers />
   </component>
@@ -72,8 +83,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598861394159">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598861394159" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1598621428820">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

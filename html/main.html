@@ -8,6 +8,24 @@
 
 </head>
 <body>
+<table style="border: 1px solid black" >
+    <tr>
+        <td rowspan="4" id="hangManImg"></td>
+        <td id = "category"></td>
+    </tr>
+    <tr>
+        <td id = "answerAreaId"></td>
+    </tr>
+    <tr>
+        <td id = "wrongGuest"></td>
+    </tr>
+    <tr>
+        <td id = "CharacterButtonTd"></td>
+    </tr>
+</table>
+
+
+
 <script src="../js/Gameboard.js"></script>
 <script src="../js/Answer.js"></script>
 <script>
@@ -19,11 +37,14 @@ answer.setCategory(category[0]);
 answer.setDifficulty(difficulty[1]);
 
 let gameBoard = new GameBoard();
-gameBoard.drawCharacterButton();
-gameBoard.drawAnswerArea(answer);
-let getClickCharacter = function (character) {
-    console.log(character);
-}
+let characterButton = gameBoard.drawCharacterButton();
+let answerArea = gameBoard.drawAnswerArea(answer);
+
+document.getElementById('hangManImg').innerHTML = "<img src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'>";
+document.getElementById('CharacterButtonTd').innerHTML = characterButton;
+document.getElementById('answerAreaId').innerHTML = answerArea;
+
+
 </script>
 </body>
 </html>
