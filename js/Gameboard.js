@@ -35,20 +35,19 @@ function GameBoard() {
     this.checkTrueCharacter = function (id, answer) {
         this.character = this.getClickCharacter(id);
         this.answer = answer.getAnswer();
-        if (this.answer.indexOf(this.character) < 0){
-            return false;
+        if (this.answer.indexOf(this.character) >= 0){
+            return true;
         }
     }
     this.countFalse = function (id,answer) {
             if (!this.checkTrueCharacter(id,answer)){
                 this.count++;
-                return this.count;
-        }
+        } return this.count;
     }
     this.count = 0;
-    // this.displayTrueCharacter = function(){
-    //
-    // }
+    this.displayTrueCharacter = function(){
+
+    }
     this.drawHangman = function (id,answer) {
         this.count = this.countFalse(id,answer);
         document.getElementById('hangManImg').attributes[1].value="../assets/Hangman-"+this.count+".png";
