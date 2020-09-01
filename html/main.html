@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Hangman Game</title>
-<div id = answerArea></div>
-
-
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <table style="border: 1px solid black" >
     <tr>
-        <td rowspan="4" id="hangManImg"></td>
+        <td rowspan="4">
+            <img  id="hangManImg" src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'>
+        </td>
         <td id = "category"></td>
     </tr>
     <tr>
@@ -25,14 +25,15 @@
 </table>
 
 
-
-<script src="../js/Gameboard.js"></script>
 <script src="../js/Answer.js"></script>
+<script src="../js/Gameboard.js"></script>
+
 <script>
 let answer = new Answer();
 let difficulty = ["Easy","Medium","Hard"];
 let category = ["Clothes","Food"];
-answer.setAnswer("Hollywood");
+answer.setAnswer("hollywood");
+answer.getAnswer();
 answer.setCategory(category[0]);
 answer.setDifficulty(difficulty[1]);
 
@@ -40,9 +41,12 @@ let gameBoard = new GameBoard();
 let characterButton = gameBoard.drawCharacterButton();
 let answerArea = gameBoard.drawAnswerArea(answer);
 
-document.getElementById('hangManImg').innerHTML = "<img src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'>";
+
 document.getElementById('CharacterButtonTd').innerHTML = characterButton;
 document.getElementById('answerAreaId').innerHTML = answerArea;
+
+
+
 
 
 </script>

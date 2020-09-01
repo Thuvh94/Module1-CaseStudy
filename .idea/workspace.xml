@@ -26,6 +26,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -41,7 +42,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lesson16-OOP/adam-and-eva/apple.js" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -67,6 +69,8 @@
       <workItem from="1598621384397" duration="661000" />
       <workItem from="1598668216299" duration="18130000" />
       <workItem from="1598838828923" duration="15202000" />
+      <workItem from="1598883468705" duration="1465000" />
+      <workItem from="1598922443702" duration="19933000" />
     </task>
     <servers />
   </component>
@@ -90,9 +94,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598861394159" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1598621428820">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1598943362418">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598621428820" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598943362418" />
   </component>
 </project>

@@ -11,14 +11,14 @@ function GameBoard() {
         for (let i = 0; i < alphabet.length; i++) {
             string+=`<tr>`;
             for (let j = 0; j < alphabet[i].length; j++) {
-                string += `<td><button id="${i}-${j}" onclick="gameBoard.getClickCharacter('${i}-${j}')">${alphabet[i][j]}</button></td>`;
+                string += `<td ><button class="button" id="${i}-${j}" onclick="gameBoard.drawHangman('${i}-${j}',answer)">${alphabet[i][j]}</button></td>`;
             }
             string+=`</tr>`;
         }
         string += `</table>`;
         return string;
     }
-// Đặt id cho table/ Cho td vào mảng. Làm hàm duyệt mảng lấy giá trị character.   getElementByTagName(td)
+
     this.drawAnswerArea = function (answer) {
         this.answer = answer.getAnswer();
         let table = "<table><tr>";
@@ -28,19 +28,32 @@ function GameBoard() {
         table += "</tr></table>";
         return table;
     }
-    this.getClickCharacter = function (character) {
-        let char= document.getElementById(character).innerText;
+    this.getClickCharacter = function (id) {
+        let char = document.getElementById(id).innerText;
         return char;
     }
-
-    this.checkTrueCharacter = function (character) {
-        this.character = this.getClickCharacter();
-       alert(this.character);
+    this.checkTrueCharacter = function (id, answer) {
+        this.character = this.getClickCharacter(id);
+        this.answer = answer.getAnswer();
+        if (this.answer.indexOf(this.character) < 0){
+            return false;
+        }
     }
-
-
-
-
-
-    
+    this.countFalse = function (id,answer) {
+            if (!this.checkTrueCharacter(id,answer)){
+                this.count++;
+                return this.count;
+        }
+    }
+    this.count = 0;
+    // this.displayTrueCharacter = function(){
+    //
+    // }
+    this.drawHangman = function (id,answer) {
+        this.count = this.countFalse(id,answer);
+        document.getElementById('hangManImg').attributes[1].value="../assets/Hangman-"+this.count+".png";
+    }
+    // this.displayFalseCharacter =function () {
+    //
+    // }
 }
