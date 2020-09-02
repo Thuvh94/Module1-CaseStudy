@@ -13,7 +13,16 @@ function GameBoard() {
         this.drawCharacterButton();
         document.getElementById('category').innerHTML = answer.getCategory(category);
     };
-
+    this.drawSelectBoard = function (category) {
+        this.category = answer.getCategory();
+        let selectBoard = "";
+        for (let i = 0; i < category.length; i++) {
+              selectBoard +=  "<button id='category" + i +"'>";
+              selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' onclick='gameBoard.drawGameBoard()'>"
+              selectBoard += "</button>";
+        }
+        document.getElementById('mainBoard').innerHTML = selectBoard;
+    }
     this.drawCharacterButton = function () {
         let alphabet = [
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],

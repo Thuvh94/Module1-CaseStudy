@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
 <div id="mainBoard">
-    <input type="button" value="Start" onclick="gameBoard.drawGameBoard()">
+    <input type="button" value="Start" onclick="gameBoard.drawSelectBoard(category)">
 </div>
 
 
@@ -28,6 +29,7 @@ let answerList =
 answer.setAnswer(answerList,1);
 answer.getAnswer();
 answer.setCategory(category,1);
+answer.getCategory();
 let gameBoard = new GameBoard(answer);
 
 </script>
