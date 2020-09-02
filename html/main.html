@@ -17,7 +17,7 @@
         <td id = "answerAreaId"></td>
     </tr>
     <tr>
-        <td id = "wrongGuest"></td>
+        <td id = "wrongGuest">Wrong characters: </td>
     </tr>
     <tr>
         <td id = "CharacterButtonTd"></td>
@@ -32,7 +32,7 @@
 let answer = new Answer();
 let difficulty = ["Easy","Medium","Hard"];
 let category = ["Clothes","Food"];
-answer.setAnswer("skirt");
+answer.setAnswer("hollywood");
 answer.getAnswer();
 answer.setCategory(category[0]);
 answer.setDifficulty(difficulty[1]);
@@ -41,7 +41,7 @@ let gameBoard = new GameBoard();
 document.getElementById('CharacterButtonTd').innerHTML = gameBoard.drawCharacterButton();
 document.getElementById('answerAreaId').innerHTML = gameBoard.drawAnswerArea(answer);
 document.getElementById('category').innerHTML = answer.getCategory(category);
-document.getElementById('wrongGuest').innerHTML = gameBoard.displayFalseCharacter();
+
 
 
 

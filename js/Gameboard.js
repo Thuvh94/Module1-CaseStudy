@@ -1,4 +1,6 @@
 function GameBoard() {
+    this.falseTimes = 0;
+    this.trueTimes = 0;
     this.drawCharacterButton = function () {
         let alphabet = [
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
@@ -11,7 +13,7 @@ function GameBoard() {
         for (let i = 0; i < alphabet.length; i++) {
             string += `<tr>`;
             for (let j = 0; j < alphabet[i].length; j++) {
-                string += `<td ><button class="button" id="${i}-${j}" onclick="gameBoard.navigate('${i}-${j}',answer)">${alphabet[i][j]}</button></td>`;
+                string += `<td ><button class="button" id="${i}-${j}" onclick="gameBoard.navigate('${i}-${j}',answer)" >${alphabet[i][j]}</button></td>`;
             }
             string += `</tr>`;
         }
@@ -28,10 +30,12 @@ function GameBoard() {
         table += `</tr></table>`;
         return table;
     }
+
     this.getClickCharacter = function (id) {
         let char = document.getElementById(id).innerText;
         return char;
     }
+
     this.checkTrueCharacter = function (id, answer) {
         this.character = this.getClickCharacter(id);
         this.answer = answer.getAnswer();
@@ -39,37 +43,61 @@ function GameBoard() {
             return true;
         }
     }
+
     this.countFalse = function (id, answer) {
         if (!this.checkTrueCharacter(id, answer)) {
-            this.count++;
+            this.falseTimes++;
         }
-        return this.count;
+        return this.falseTimes;
     }
-    this.count = 0;
+
     this.displayTrueCharacter = function (id, answer) {
         let char= document.getElementById(id).innerText;
-        for(i=0; i< answer.answer.length; i++){
-            if(char==answer.answer[i]){
+        for(let i=0; i< answer.answer.length; i++){
+            if(char===answer.answer[i]){
                 document.getElementById(i).innerText= char;
+                this.trueTimes++;
             }
         }
     }
+
     this.drawHangman = function (id, answer) {
         this.count = this.countFalse(id, answer);
         document.getElementById('hangManImg').attributes[1].value = "../assets/Hangman-" + this.count + ".png";
+
     }
+
     this.navigate = function (id, answer) {
-        if (this.checkTrueCharacter(id,answer))
-            this.displayTrueCharacter(id,answer)
+        if (this.checkTrueCharacter(id,answer)){
+            this.displayTrueCharacter(id,answer);
+            this.checkWin();
+        }
         else {
             this.drawHangman(id,answer);
-            this.displayFalseCharacter(id);
+            this.displayWrongGuest(id);
+            this.checkLose();
+        }
+        this.disableClickButton(id);
+    }
+    this.wrongGuest ='Wrong character: ';
+    this.displayWrongGuest =function (id) {
+        this.wrongGuest += " "+this.getClickCharacter(id);
+        document.getElementById('wrongGuest').innerHTML = this.wrongGuest;
+    }
+
+    this.disableClickButton = function (id){
+        document.getElementById(id).disabled = true;
+        document.getElementById(id).style.backgroundColor = '#A9A9A9';
+    }
+
+    this.checkLose = function () {
+        if(this.falseTimes ===6){
+            alert ('You lose!');
         }
     }
-    this.displayFalseCharacter =function (id) {
-        let string ="";
-        string += this.getClickCharacter(id);
-        return string;
+    this.checkWin = function () {
+        if(this.trueTimes===answer.answer.length)
+            alert('You Win!');
     }
 }
 
