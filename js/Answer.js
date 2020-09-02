@@ -1,20 +1,24 @@
-function Answer(answer,category,difficulty){
+function Answer(answer,category){
     this.answer = answer;
     this.category = category;
-    this.difficulty = difficulty;
-    this.setAnswer = function (answer) {
-        this.answer = answer;
-    }
-    this.getAnswer = function () {
-        return this.answer;
-    }
-    this.setCategory = function (category) {
-        this.category = category;
+    this.setCategory = function (category, number) {
+        this.number = number;
+        this.category = category[number];
     }
     this.getCategory = function () {
         return this.category;
     }
-    this.setDifficulty = function (difficulty) {
-        this.difficulty = difficulty;
+    this.setAnswer = function (list,number) {
+        let index = 0;
+        let answerList = list[number];
+        index = Math.floor(Math.random()*answerList.length);
+        this.answer = answerList[index];
     }
+    this.getAnswer = function () {
+        return this.answer;
+    }
+
+    // this.setDifficulty = function (difficulty) {
+    //     this.difficulty = difficulty;
+    // }
 }

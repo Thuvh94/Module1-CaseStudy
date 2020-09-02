@@ -23,3 +23,15 @@
 .button:visited{
     border-color:sandybrown;
 }
+.answerArea{
+    background-color: lightgreen;
+    padding: initial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+}

@@ -25,7 +25,7 @@ function GameBoard() {
         this.answer = answer.getAnswer();
         let table = `<table><tr>`;
         for (let i = 0; i < this.answer.length; i++) {
-            table += `<td id="${i}" style='background-color: green; width:20px; height: 20px' ></td>`;
+            table += `<td id="${i}" class="answerArea" ></td>`;
         }
         table += `</tr></table>`;
         return table;
