@@ -1,6 +1,19 @@
 function GameBoard() {
     this.falseTimes = 0;
     this.trueTimes = 0;
+    this.drawGameBoard = function (){
+        let table = "<table style='border: 1px solid black' >";
+        table += "<tr><td rowspan='4'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
+        table += "<td id = 'category'></td></tr>";
+        table += "<tr><td id='answerAreaId'></td></tr>";
+        table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
+        table += "<tr><td id='CharacterButtonTd'></td></tr></table>";
+        document.getElementById('mainBoard').innerHTML = table;
+        this.drawAnswerArea(answer);
+        this.drawCharacterButton();
+        document.getElementById('category').innerHTML = answer.getCategory(category);
+    };
+
     this.drawCharacterButton = function () {
         let alphabet = [
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
@@ -18,7 +31,7 @@ function GameBoard() {
             string += `</tr>`;
         }
         string += `</table>`;
-        return string;
+        document.getElementById('CharacterButtonTd').innerHTML = string;
     }
 
     this.drawAnswerArea = function (answer) {
@@ -28,7 +41,7 @@ function GameBoard() {
             table += `<td id="${i}" class="answerArea" ></td>`;
         }
         table += `</tr></table>`;
-        return table;
+        document.getElementById('answerAreaId').innerHTML = table;
     }
 
     this.getClickCharacter = function (id) {

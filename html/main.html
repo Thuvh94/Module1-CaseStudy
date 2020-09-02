@@ -6,28 +6,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<table style="border: 1px solid black" >
-    <tr>
-        <td rowspan="4">
-            <img  id="hangManImg" src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'>
-        </td>
-        <td id = "category"></td>
-    </tr>
-    <tr>
-        <td id = "answerAreaId"></td>
-    </tr>
-    <tr>
-        <td id = "wrongGuest">Wrong characters: </td>
-    </tr>
-    <tr>
-        <td id = "CharacterButtonTd"></td>
-    </tr>
-</table>
+<div id="mainBoard">
+    <input type="button" value="Start" onclick="gameBoard.drawGameBoard()">
+</div>
+
 
 
 <script src="../js/Answer.js"></script>
 <script src="../js/Gameboard.js"></script>
-
 <script>
 let answer = new Answer();
 let category = ["Animals", "Clothes", "Fruit", "Home", "Transportation"];
@@ -42,17 +28,7 @@ let answerList =
 answer.setAnswer(answerList,1);
 answer.getAnswer();
 answer.setCategory(category,1);
-
-
 let gameBoard = new GameBoard(answer);
-document.getElementById('CharacterButtonTd').innerHTML = gameBoard.drawCharacterButton();
-document.getElementById('answerAreaId').innerHTML = gameBoard.drawAnswerArea(answer);
-document.getElementById('category').innerHTML = answer.getCategory(category);
-
-
-
-
-
 
 </script>
 </body>
