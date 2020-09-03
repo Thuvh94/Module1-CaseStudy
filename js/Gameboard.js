@@ -129,11 +129,13 @@ function GameBoard() {
         if (this.checkTrueCharacter(id,answer)){
             this.displayTrueCharacter(id,answer);
             this.checkWin();
+            this.confirmPlayNext();
         }
         else {
             this.drawHangman(id,answer);
             this.displayWrongGuest(id);
             this.checkLose();
+            this.confirmPlayNext();
         }
         this.disableClickButton(id);
     }
@@ -151,14 +153,28 @@ function GameBoard() {
 
     this.checkLose = function () {
         if(this.falseTimes ===6){
-            if(confirm('You lose!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?'))
-                this.playNext();
+            return true;
         }
     }
     this.checkWin = function () {
-        if(this.trueTimes===answer.answer.length)
-            confirm("You won! Do you want to play next game?");
+        if(this.trueTimes===answer.answer.length){
+            return true;
+        }
     }
+    this.confirmPlayNext = function () {
+        if(this.checkLose()){
+            if(confirm('You lose!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?'))
+                this.playNext();
+            else
+                this.endGame();
+        }
+        if(this.checkWin()){
+            if(confirm("You won! Do you want to play next game?"));
+                this.playNext();
+            this.endGame();
+        }
+    }
+
     this.playNext=function(){
         let topic = answer.getCategory();
         let number = category.indexOf(topic);
@@ -171,5 +187,8 @@ function GameBoard() {
     this.clearWrong = function (){
         console.log("Clean Wrong");
         this.wrongGuest = [];
+    }
+    this.endGame = function () {
+        document.getElementById('mainBoard').innerHTML = "<img src='../assets/endGame.jpg' alt='Good Bye!'>";
     }
 }
