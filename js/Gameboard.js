@@ -49,9 +49,10 @@ function GameBoard() {
         this.setCategory(number,category);
         this.setAnswer(number,list);
         let table = "<table style='border: 1px solid black' >";
-        table += "<tr><td rowspan='4'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
-        table += "<td id = 'category'></td></tr>";
-        table += "<tr><td id='answerAreaId'></td></tr>";
+        table += `<tr> <td id="score">Score: </td>`;
+        table += `<td id = 'category'></td></tr>`;
+        table += "<tr><td rowspan='3'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
+        table += "<td id='answerAreaId'></td></tr>";
         table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
         table += "<tr><td id='CharacterButtonTd'></td></tr>";
         table += "<tr><td colspan='2'><button style='float: right' onclick='gameBoard.drawPlaySelectBoard(category)'>Switch Category</button></td></tr>";
@@ -188,7 +189,7 @@ function GameBoard() {
         let topic = answer.getCategory();
         let number = category.indexOf(topic);
         this.clearWrong();
-        this.trueTimes=0;
+        this.trueTimes = 0;
         this.falseTimes = 0;
         gameBoard.drawGameBoard(number,category,answerList);
         this.drawHangman(0,answer.answer);
