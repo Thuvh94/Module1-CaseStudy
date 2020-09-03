@@ -29,8 +29,9 @@ function GameBoard() {
         let string ='';
         string+= "Category: " + answer.getCategory() +"<br>";
         for (let i = 0; i < list[number].length ; i++) {
-                string += list[number][i]+"<br>";
-        } document.write(string);
+                string +=`<a href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
+                string += list[number][i] +`<a>`+"<br>";
+        } document.getElementById('mainBoard').innerHTML = string;
     }
 
     this.drawGameBoard = function (number,category,list){
