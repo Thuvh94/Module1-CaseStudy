@@ -7,11 +7,9 @@
 </head>
 <body>
 <div id="mainBoard">
-    <input type="button" value="Start" onclick="gameBoard.drawPlaySelectBoard(category)" id="buttstart">
-    <input type="button" value="Review" onclick="gameBoard.drawReviewSelectBoard(category)" id="buttreview">
 </div>
-<div id="buttonPosition">
-</div>
+<!--<div id="buttonPosition">-->
+<!--</div>-->
 <script src="../js/Answer.js"></script>
 <script src="../js/Gameboard.js"></script>
 <script>
@@ -26,6 +24,7 @@
             "airplane bicycle boat bus car helicopter horse jet motorcycle ship subway taxi train truck".split(/\s+/)
         ]
     let gameBoard = new GameBoard(answer);
+    gameBoard.drawFirstPage();
 </script>
 </body>
 </html>

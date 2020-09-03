@@ -1,9 +1,14 @@
 function GameBoard() {
     this.falseTimes = 0;
     this.trueTimes = 0;
+    this.drawFirstPage = function () {
+        let str = `<input type="button" value="Play" onclick="gameBoard.drawPlaySelectBoard(category)" id="buttstart">`;
+        str += `<input type="button" value="Review" onclick="gameBoard.drawReviewSelectBoard(category)" id="buttreview">`;
+        document.getElementById('mainBoard').innerHTML = str;
+    }
     this.drawPlaySelectBoard = function (category) {
         this.category = answer.getCategory();
-        let selectBoard = "";
+        let selectBoard = "Choose a category: <br><br><br>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawGameBoard(${i},category,answerList)'>`;
             selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
@@ -14,14 +19,14 @@ function GameBoard() {
 
     this.drawReviewSelectBoard = function (){
         this.category = answer.getCategory();
-        let selectBoard = "";
+        let selectBoard = "Choose a category: <br><br><br>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawReviewBoard(${i},category,answerList)'>`;
             selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
             selectBoard += "</button>";
         }
+        selectBoard += `<br><br><br><input type="button" value="Back" onclick="gameBoard.drawFirstPage()">`;
         document.getElementById('mainBoard').innerHTML = selectBoard;
-        document.getElementById('buttonPosition').innerHTML= "";
     }
 
     this.drawReviewBoard = function (number,category,list) {
@@ -32,10 +37,9 @@ function GameBoard() {
         for (let i = 0; i < list[number].length ; i++) {
             string +=`<a href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
             string += list[number][i] +`<a>`+"<br>";
-        } document.getElementById('mainBoard').innerHTML = string;
-        let btn = '';
-        btn += `<input type="button" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
-        document.getElementById('buttonPosition').innerHTML=btn;
+        }
+        string+= `<input type="button" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
+        document.getElementById('mainBoard').innerHTML=string;
     }
 
     this.drawGameBoard = function (number,category,list){
