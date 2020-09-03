@@ -1,7 +1,7 @@
 function GameBoard() {
     this.falseTimes = 0;
     this.trueTimes = 0;
-    this.drawSelectBoard = function (category) {
+    this.drawPlaySelectBoard = function (category) {
         this.category = answer.getCategory();
         let selectBoard = "";
         for (let i = 0; i < category.length; i++) {
@@ -11,6 +11,28 @@ function GameBoard() {
         }
         document.getElementById('mainBoard').innerHTML = selectBoard;
     }
+
+    this.drawReviewSelectBoard = function (category){
+        this.category = answer.getCategory();
+        let selectBoard = "";
+        for (let i = 0; i < category.length; i++) {
+            selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawReviewBoard(${i},category,answerList)'>`;
+            selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
+            selectBoard += "</button>";
+        }
+        document.getElementById('mainBoard').innerHTML = selectBoard;
+    }
+
+    this.drawReviewBoard = function (number,category,list) {
+        this.setCategory(number,category);
+        this.setAnswer(number,list);
+        let string ='';
+        string+= "Category: " + answer.getCategory() +"<br>";
+        for (let i = 0; i < list[number].length ; i++) {
+                string += list[number][i]+"<br>";
+        } document.write(string);
+    }
+
     this.drawGameBoard = function (number,category,list){
         this.setCategory(number,category);
         this.setAnswer(number,list);
