@@ -39,6 +39,8 @@ function GameBoard() {
             string += list[number][i] +`<a>`+"<br>";
         }
         string+= `<input type="button" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
+        let num = category.indexOf(answer.getCategory());
+        string+= `<input type="button" value="Challenge this category" onclick="gameBoard.drawGameBoard(${num},category,answerList)">`;
         document.getElementById('mainBoard').innerHTML=string;
     }
 
