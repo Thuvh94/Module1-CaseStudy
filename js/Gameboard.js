@@ -1,6 +1,16 @@
 function GameBoard() {
     this.falseTimes = 0;
     this.trueTimes = 0;
+    this.drawSelectBoard = function (category) {
+        this.category = answer.getCategory();
+        let selectBoard = "";
+        for (let i = 0; i < category.length; i++) {
+            selectBoard += `<button id='category" + i +"' onclick='gameBoard.setCategory(${i},category)'>`;
+            selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
+            selectBoard += "</button>";
+        }
+        document.getElementById('mainBoard').innerHTML = selectBoard;
+    }
     this.drawGameBoard = function (){
         let table = "<table style='border: 1px solid black' >";
         table += "<tr><td rowspan='4'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
@@ -9,19 +19,14 @@ function GameBoard() {
         table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
         table += "<tr><td id='CharacterButtonTd'></td></tr></table>";
         document.getElementById('mainBoard').innerHTML = table;
-        this.drawAnswerArea(answer);
         this.drawCharacterButton();
+        this.drawAnswerArea(answer);
         document.getElementById('category').innerHTML = answer.getCategory(category);
-    };
-    this.drawSelectBoard = function (category) {
-        this.category = answer.getCategory();
-        let selectBoard = "";
-        for (let i = 0; i < category.length; i++) {
-              selectBoard +=  "<button id='category" + i +"'>";
-              selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' onclick='gameBoard.drawGameBoard()'>"
-              selectBoard += "</button>";
-        }
-        document.getElementById('mainBoard').innerHTML = selectBoard;
+    }
+
+    this.setCategory = function (number,category) {
+        this.number = number;
+        alert (category[number]) ;
     }
     this.drawCharacterButton = function () {
         let alphabet = [
@@ -114,7 +119,7 @@ function GameBoard() {
 
     this.checkLose = function () {
         if(this.falseTimes ===6){
-            alert ('You lose!');
+            alert ('You lose!\n The answer is "'+answer.getAnswer().toUpperCase()+'"');
         }
     }
     this.checkWin = function () {
@@ -122,4 +127,3 @@ function GameBoard() {
             alert('You Win!');
     }
 }
-

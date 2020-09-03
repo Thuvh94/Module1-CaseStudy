@@ -2,7 +2,6 @@ function Answer(answer,category){
     this.answer = answer;
     this.category = category;
     this.setCategory = function (category, number) {
-        this.number = number;
         this.category = category[number];
     }
     this.getCategory = function () {
@@ -17,8 +16,4 @@ function Answer(answer,category){
     this.getAnswer = function () {
         return this.answer;
     }
-
-    // this.setDifficulty = function (difficulty) {
-    //     this.difficulty = difficulty;
-    // }
 }
