@@ -30,8 +30,8 @@ function GameBoard() {
         let string ='';
         string+= "Category: " + answer.getCategory() +"<br>";
         for (let i = 0; i < list[number].length ; i++) {
-                string +=`<a href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
-                string += list[number][i] +`<a>`+"<br>";
+            string +=`<a href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
+            string += list[number][i] +`<a>`+"<br>";
         } document.getElementById('mainBoard').innerHTML = string;
         let btn = '';
         btn += `<input type="button" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
@@ -46,7 +46,7 @@ function GameBoard() {
         table += "<td id = 'category'></td></tr>";
         table += "<tr><td id='answerAreaId'></td></tr>";
         table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
-        table += "<tr><td id='CharacterButtonTd'></td></tr></table>";
+        table += "<tr><td id='CharacterButtonTd'></td></tr>";
         document.getElementById('mainBoard').innerHTML = table;
         this.drawCharacterButton();
         this.drawAnswerArea(answer);
@@ -137,10 +137,11 @@ function GameBoard() {
         }
         this.disableClickButton(id);
     }
-    this.wrongGuest ='Wrong character: ';
+    this.wrongGuest =[];
     this.displayWrongGuest =function (id) {
-        this.wrongGuest += " "+this.getClickCharacter(id);
-        document.getElementById('wrongGuest').innerHTML = this.wrongGuest;
+        let char =this.getClickCharacter(id);
+        this.wrongGuest.push(char);
+        document.getElementById('wrongGuest').innerHTML = 'Wrong character: '+ this.wrongGuest;
     }
 
     this.disableClickButton = function (id){
@@ -150,11 +151,19 @@ function GameBoard() {
 
     this.checkLose = function () {
         if(this.falseTimes ===6){
-            alert ('You lose!\n The answer is "'+answer.getAnswer().toUpperCase()+'"');
+            if(confirm('You lose!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?'))
+                this.playNext();
         }
     }
     this.checkWin = function () {
         if(this.trueTimes===answer.answer.length)
-            alert('You Win!');
+            confirm("You won! Do you want to play next game?");
+    }
+    this.playNext=function(){
+        let topic = answer.getCategory();
+        let number = category.indexOf(topic);
+        gameBoard.drawGameBoard(number,category,answerList);
+        this.falseTimes = 0;
+        this.drawHangman(0,answer.answer);
     }
 }
