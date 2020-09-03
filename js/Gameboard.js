@@ -53,6 +53,8 @@ function GameBoard() {
         table += "<tr><td id='answerAreaId'></td></tr>";
         table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
         table += "<tr><td id='CharacterButtonTd'></td></tr>";
+        table += "<tr><td colspan='2'><button style='float: right' onclick='gameBoard.drawPlaySelectBoard(category)'>Switch Category</button></td></tr>";
+        table += "</table>";
         document.getElementById('mainBoard').innerHTML = table;
         this.drawCharacterButton();
         this.drawAnswerArea(answer);
