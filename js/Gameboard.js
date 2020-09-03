@@ -162,8 +162,14 @@ function GameBoard() {
     this.playNext=function(){
         let topic = answer.getCategory();
         let number = category.indexOf(topic);
+        this.clearWrong();
         gameBoard.drawGameBoard(number,category,answerList);
         this.falseTimes = 0;
         this.drawHangman(0,answer.answer);
+
+    }
+    this.clearWrong = function (){
+        console.log("Clean Wrong");
+        this.wrongGuest = [];
     }
 }
