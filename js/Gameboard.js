@@ -5,13 +5,14 @@ function GameBoard() {
         this.category = answer.getCategory();
         let selectBoard = "";
         for (let i = 0; i < category.length; i++) {
-            selectBoard += `<button id='category" + i +"' onclick='gameBoard.setCategory(${i},category)'>`;
+            selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawGameBoard(${i},category)'>`;
             selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
             selectBoard += "</button>";
         }
         document.getElementById('mainBoard').innerHTML = selectBoard;
     }
-    this.drawGameBoard = function (){
+    this.drawGameBoard = function (number,category){
+        this.setCategory(number,category);
         let table = "<table style='border: 1px solid black' >";
         table += "<tr><td rowspan='4'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
         table += "<td id = 'category'></td></tr>";
@@ -25,8 +26,7 @@ function GameBoard() {
     }
 
     this.setCategory = function (number,category) {
-        this.number = number;
-        alert (category[number]) ;
+        answer.setCategory(category,number) ;
     }
     this.drawCharacterButton = function () {
         let alphabet = [
