@@ -1,6 +1,7 @@
 function GameBoard() {
     this.falseTimes = 0;
     this.trueTimes = 0;
+    let playerScore = 0;
     this.drawFirstPage = function () {
         let str = `<input type="button" value="Play" onclick="gameBoard.drawPlaySelectBoard(category)" id="buttstart">`;
         str += `<input type="button" value="Review" onclick="gameBoard.drawReviewSelectBoard(category)" id="buttreview">`;
@@ -8,6 +9,7 @@ function GameBoard() {
     }
     this.drawPlaySelectBoard = function (category) {
         this.category = answer.getCategory();
+        playerScore =0;
         let selectBoard = "Choose a category: <br><br><br>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawGameBoard(${i},category,answerList)'>`;
@@ -49,7 +51,7 @@ function GameBoard() {
         this.setCategory(number,category);
         this.setAnswer(number,list);
         let table = "<table style='border: 1px solid black' >";
-        table += `<tr> <td id="score">Score: </td>`;
+        table += `<tr> <td id="score"></td>`;
         table += `<td id = 'category'></td></tr>`;
         table += "<tr><td rowspan='3'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
         table += "<td id='answerAreaId'></td></tr>";
@@ -60,6 +62,7 @@ function GameBoard() {
         document.getElementById('mainBoard').innerHTML = table;
         this.drawCharacterButton();
         this.drawAnswerArea(answer);
+        document.getElementById('score').innerHTML = "Score: " +playerScore +"/"+ this.showMaxScore();
         document.getElementById('category').innerHTML = answer.getCategory(category);
     }
 
@@ -173,14 +176,18 @@ function GameBoard() {
     }
     this.confirmPlayNext = function () {
         if(this.checkLose()){
-            if(confirm('Sorry! You lose this game!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?'))
+            if(confirm('Sorry! You lose this game!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?')){
                 this.playNext();
+            }
+
             else
                 this.endGame();
         }
         if(this.checkWin()){
-            if(confirm('Congratulation!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?'))
+            if(confirm('Congratulation!\n The answer is "'+answer.getAnswer().toUpperCase()+'"\n Do you want to play next game?')){
+                playerScore++;
                 this.playNext();
+            }
             this.endGame();
         }
     }
@@ -198,6 +205,13 @@ function GameBoard() {
         console.log("Clean Wrong");
         this.wrongGuest = [];
     }
+    this.showMaxScore = function () {
+        answer.getCategory();
+        let num = category.indexOf(answer.getCategory());
+        let totalScore = answerList[num].length;
+        return totalScore;
+    }
+
     this.endGame = function () {
         gameBoard.drawFirstPage();
     }
