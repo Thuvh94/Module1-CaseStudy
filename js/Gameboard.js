@@ -12,25 +12,25 @@ function GameBoard() {
         this.category = answer.getCategory();
         playerScore =0;
         playerTurn = 1;
-        let selectBoard = "Choose a category: <br><br><br>";
+        let selectBoard = "<p class='displayText'>Choose a category: </p>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawGameBoard(${i},category,answerList)'>`;
             selectBoard += "<img class='selectCategoryButton' src='assets/category"+i+".PNG' >"
             selectBoard += "</button>";
         }
-        selectBoard+= `<br><br><br><input type="button" value="Back" onclick="gameBoard.drawFirstPage()">`;
+        selectBoard+= `<br><br><br><input type="button" class="backButton" value="Back" onclick="gameBoard.drawFirstPage()">`;
         document.getElementById('mainBoard').innerHTML = selectBoard;
     }
 
     this.drawReviewSelectBoard = function (){
         this.category = answer.getCategory();
-        let selectBoard = "Choose a category: <br><br><br>";
+        let selectBoard = "<p class='displayText'>Choose a category: </p>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawReviewBoard(${i},category,answerList)'>`;
             selectBoard += "<img class='selectCategoryButton' src='assets/category"+i+".PNG' >"
             selectBoard += "</button>";
         }
-        selectBoard += `<br><br><br><input type="button" value="Back" onclick="gameBoard.drawFirstPage()">`;
+        selectBoard += `<br><br><br><input type="button" class="backButton" value="Back" onclick="gameBoard.drawFirstPage()">`;
         document.getElementById('mainBoard').innerHTML = selectBoard;
     }
 
@@ -43,9 +43,9 @@ function GameBoard() {
             string +=`<a href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
             string += list[number][i] +`<a>`+"<br>";
         }
-        string+= `<input type="button" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
+        string+= `<input type="button" class="backButton" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
         let num = category.indexOf(answer.getCategory());
-        string+= `<input type="button" value="Challenge this category" onclick="gameBoard.drawGameBoard(${num},category,answerList)">`;
+        string+= `<input type="button" class = "challengeButton" value="Challenge this category" onclick="gameBoard.drawGameBoard(${num},category,answerList)">`;
         document.getElementById('mainBoard').innerHTML=string;
     }
 
@@ -60,7 +60,7 @@ function GameBoard() {
         table += "<td id='answerAreaId'></td></tr>";
         table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
         table += "<tr><td id='CharacterButtonTd'></td></tr>";
-        table += "<tr><td colspan='2'><button style='float: right' onclick='gameBoard.drawPlaySelectBoard(category)'>Switch Category</button></td></tr>";
+        table += "<tr><td colspan='2'><button style='float: right' class='switchCategoryBtn' onclick='gameBoard.drawPlaySelectBoard(category)'>Switch Category</button></td></tr>";
         table += "</table>";
         document.getElementById('mainBoard').innerHTML = table;
         this.drawCharacterButton();

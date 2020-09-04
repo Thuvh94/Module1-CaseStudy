@@ -1,10 +1,11 @@
 /*# id, . class*/
 /*general*/
+*{margin: auto}
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 #mainBoard {
-    /*background-image: url("https://i.pinimg.com/originals/0a/9b/65/0a9b65c27cdbac4d4c37e48ffa3fdb8c.jpg");*/
+    background-image: url("../assets/background-test4.png");
     /*background-attachment: fixed;*/
     /*background-size: auto;*/
     /*background-color: #cccccc;*/
@@ -20,9 +21,32 @@ body {
     margin: auto;
     /*word-wrap: normal;*/
 }
+.displayText {
+    text-align: left;
+    margin-left: 30px;
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    font-family: Tahoma;
+    font-size: 30px;
+}
+.backButton {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: initial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 8px;
+    border-radius: 7px;
+    width: 77px;
+    height: 30px;
+}
 /*drawGameBoard element*/
 .characterButton {
-    background-color: #4CAF50; /* Green */
+    background-color: black;
     border: none;
     color: white;
     padding: initial;
@@ -35,8 +59,9 @@ body {
     width: 50px;
     height: 50px;
 }
+
 .characterButton:hover {
-    background-color: sandybrown;
+    background-color: darkslategrey;
     color: white;
     border-color:sandybrown ;
 }
@@ -47,7 +72,7 @@ body {
     border-color:sandybrown;
 }
 .answerArea{
-    background-color: lightgreen;
+    background-color: black;
     padding: initial;
     text-align: center;
     text-decoration: none;
@@ -57,6 +82,24 @@ body {
     border-radius: 12px;
     width: 50px;
     height: 50px;
+    color: white;
+}
+.switchCategoryBtn{
+    background-color: black;
+    border: none;
+    color: white;
+    padding: initial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 8px;
+    border-radius: 7px;
+    width: 167px;
+    height: 30px;
+    position: absolute;
+    left: 36%;
+    top: 75%;
 }
 /*drawPlayReviewBoard element*/
 .selectCategoryButton{
@@ -66,14 +109,52 @@ body {
 }
 
 /*firstPage element*/
+
 #startBtn{
     position: absolute;
-    left: 30%;
-    top: 50%;
+    left: 8%;
+    top: 40%;
+    background-color: black;
+    border: none;
+    color: white;
+    padding: initial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    width: 120px;
+    height: 50px;
 }
 #reviewBtn{
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 30%;
+    top: 40%;
+    background-color:black;
+    border: none;
+    color: white;
+    padding: initial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    width: 120px;
+    height: 50px;
 }
-
+.challengeButton{
+    background-color: black;
+    border: none;
+    color: white;
+    padding: initial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 8px;
+    border-radius: 7px;
+    width: 300px;
+    height: 30px;
+}
