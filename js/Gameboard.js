@@ -4,7 +4,9 @@ function GameBoard() {
     let playerScore = 0;
     let playerTurn = 1;
     this.drawFirstPage = function () {
-        let str = `<input type="button" value="Play" onclick="gameBoard.drawPlaySelectBoard(category)" id="startBtn" class="firstPageBtn">`;
+        let str = `<h1 class="titleText">HANGMAN GAME</h1>`;
+        str +=`<p class="subTitleText">Let's learn English together!</p>`;
+        str += `<input type="button" value="Play" onclick="gameBoard.drawPlaySelectBoard(category)" id="startBtn" class="firstPageBtn">`;
         str += `<input type="button" value="Review" onclick="gameBoard.drawReviewSelectBoard(category)" id="reviewBtn" class="firstPageBtn">`;
         document.getElementById('mainBoard').innerHTML = str;
     }
