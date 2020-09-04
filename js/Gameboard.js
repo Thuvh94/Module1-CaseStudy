@@ -4,8 +4,8 @@ function GameBoard() {
     let playerScore = 0;
     let playerTurn = 1;
     this.drawFirstPage = function () {
-        let str = `<input type="button" value="Play" onclick="gameBoard.drawPlaySelectBoard(category)" id="buttstart">`;
-        str += `<input type="button" value="Review" onclick="gameBoard.drawReviewSelectBoard(category)" id="buttreview">`;
+        let str = `<input type="button" value="Play" onclick="gameBoard.drawPlaySelectBoard(category)" id="startBtn" class="firstPageBtn">`;
+        str += `<input type="button" value="Review" onclick="gameBoard.drawReviewSelectBoard(category)" id="reviewBtn" class="firstPageBtn">`;
         document.getElementById('mainBoard').innerHTML = str;
     }
     this.drawPlaySelectBoard = function (category) {
@@ -15,7 +15,7 @@ function GameBoard() {
         let selectBoard = "Choose a category: <br><br><br>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawGameBoard(${i},category,answerList)'>`;
-            selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
+            selectBoard += "<img class='selectCategoryButton' src='assets/category"+i+".PNG' >"
             selectBoard += "</button>";
         }
         selectBoard+= `<br><br><br><input type="button" value="Back" onclick="gameBoard.drawFirstPage()">`;
@@ -27,7 +27,7 @@ function GameBoard() {
         let selectBoard = "Choose a category: <br><br><br>";
         for (let i = 0; i < category.length; i++) {
             selectBoard += `<button id='category" + i +"' onclick='gameBoard.drawReviewBoard(${i},category,answerList)'>`;
-            selectBoard += "<img class='selectCategoryButton' src='../assets/category"+i+".PNG' >"
+            selectBoard += "<img class='selectCategoryButton' src='assets/category"+i+".PNG' >"
             selectBoard += "</button>";
         }
         selectBoard += `<br><br><br><input type="button" value="Back" onclick="gameBoard.drawFirstPage()">`;
@@ -52,11 +52,11 @@ function GameBoard() {
     this.drawGameBoard = function (number,category,list){
         this.setCategory(number,category);
         this.setAnswer(number,list);
-        let table = "<table style='border: 1px solid black' >";
+        let table = "<table>";
         table += `<tr><td id="playerTurn"></td></tr>`;
         table += `<tr> <td id="score"></td>`;
         table += `<td id = 'category'></td></tr>`;
-        table += "<tr><td rowspan='3'><img  id='hangManImg' src='../assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
+        table += "<tr><td rowspan='3'><img  id='hangManImg' src='assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
         table += "<td id='answerAreaId'></td></tr>";
         table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
         table += "<tr><td id='CharacterButtonTd'></td></tr>";
@@ -88,7 +88,7 @@ function GameBoard() {
         for (let i = 0; i < alphabet.length; i++) {
             string += `<tr>`;
             for (let j = 0; j < alphabet[i].length; j++) {
-                string += `<td ><button class="button" id="${i}-${j}" onclick="gameBoard.navigate('${i}-${j}',answer)" >${alphabet[i][j]}</button></td>`;
+                string += `<td ><button class="characterButton" id="${i}-${j}" onclick="gameBoard.navigate('${i}-${j}',answer)" >${alphabet[i][j]}</button></td>`;
             }
             string += `</tr>`;
         }
@@ -138,7 +138,7 @@ function GameBoard() {
 
     this.drawHangman = function (id, answer) {
         this.count = this.countFalse(id, answer);
-        document.getElementById('hangManImg').attributes[1].value = "../assets/Hangman-" + this.count + ".png";
+        document.getElementById('hangManImg').attributes[1].value = "assets/Hangman-" + this.count + ".png";
 
     }
 

@@ -12,6 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c3684c74-1134-4737-b0ba-ac7ad49a18e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/Gameboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Gameboard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,14 +48,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1" />
       <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\html" />
       <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\css" />
       <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\js" />
       <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Back-up-Thu\CodeGym\Casestudy-Module1\js" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -75,7 +78,7 @@
       <workItem from="1599094779731" duration="3305000" />
       <workItem from="1599098105634" duration="26443000" />
       <workItem from="1599142597987" duration="10998000" />
-      <workItem from="1599181159280" duration="1843000" />
+      <workItem from="1599181159280" duration="5995000" />
     </task>
     <servers />
   </component>

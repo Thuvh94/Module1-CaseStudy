@@ -1,4 +1,27 @@
-.button {
+/*# id, . class*/
+/*general*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#mainBoard {
+    /*background-image: url("https://i.pinimg.com/originals/0a/9b/65/0a9b65c27cdbac4d4c37e48ffa3fdb8c.jpg");*/
+    /*background-attachment: fixed;*/
+    /*background-size: auto;*/
+    /*background-color: #cccccc;*/
+    border: solid;
+    width: 800px;
+    height: 600px;
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    position: relative;
+    /*background: #555555;*/
+    display: block;
+    margin: auto;
+    /*word-wrap: normal;*/
+}
+/*drawGameBoard element*/
+.characterButton {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -12,15 +35,15 @@
     width: 50px;
     height: 50px;
 }
-.button:hover {
+.characterButton:hover {
     background-color: sandybrown;
     color: white;
     border-color:sandybrown ;
 }
-.button:active{
+.characterButton:active{
     border-color:sandybrown;
 }
-.button:visited{
+.characterButton:visited{
     border-color:sandybrown;
 }
 .answerArea{
@@ -35,38 +58,22 @@
     width: 50px;
     height: 50px;
 }
+/*drawPlayReviewBoard element*/
 .selectCategoryButton{
     width: 50px ;
     height: 50px;
     border: none;
 }
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
-.mainBoard {
-    background-image: url("../assets/firstPage.jpg");
-    background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.game-image .start-button{
+/*firstPage element*/
+#startBtn{
     position: absolute;
+    left: 30%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
 }
+#reviewBtn{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
