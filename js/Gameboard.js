@@ -38,9 +38,9 @@ function GameBoard() {
         this.setCategory(number,category);
         this.setAnswer(number,list);
         let string ='';
-        string+= "Category: " + answer.getCategory() +"<br>";
+        string+= `<span class="elementText">Category: </span>` + answer.getCategory() +"<br>";
         for (let i = 0; i < list[number].length ; i++) {
-            string +=`<a href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
+            string +=`<a class="elementText" href="https://dictionary.cambridge.org/dictionary/english/`+list[number][i] +`"`+`target="_blank" style="text-decoration: none">`;
             string += list[number][i] +`<a>`+"<br>";
         }
         string+= `<input type="button" class="backButton" value="Back" onclick="gameBoard.drawReviewSelectBoard()">`;
@@ -53,12 +53,12 @@ function GameBoard() {
         this.setCategory(number,category);
         this.setAnswer(number,list);
         let table = "<table>";
-        table += `<tr><td id="playerTurn"></td></tr>`;
-        table += `<tr> <td id="score"></td>`;
-        table += `<td id = 'category'></td></tr>`;
+        table += `<tr><td id="playerTurn" class="turnText"></td></tr>`;
+        table += `<tr> <td id="score" class="elementText"></td>`;
+        table += `<td id = 'category' class="elementText"></td></tr>`;
         table += "<tr><td rowspan='3'><img  id='hangManImg' src='assets/Hangman-0.png' style='transform: rotateY(180deg)'></td>";
         table += "<td id='answerAreaId'></td></tr>";
-        table += "<tr><td id='wrongGuest'>Wrong characters</td></tr>";
+        table += "<tr><td id='wrongGuest' class='elementText'>Wrong characters</td></tr>";
         table += "<tr><td id='CharacterButtonTd'></td></tr>";
         table += "<tr><td colspan='2'><button style='float: right' class='switchCategoryBtn' onclick='gameBoard.drawPlaySelectBoard(category)'>Switch Category</button></td></tr>";
         table += "</table>";

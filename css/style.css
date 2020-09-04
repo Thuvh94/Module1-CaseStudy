@@ -101,6 +101,17 @@ body {
     left: 36%;
     top: 75%;
 }
+.turnText{
+    font-size: large;
+    float: right;
+    position: absolute;
+    right: 10px;
+    font-weight: bold;
+}
+.elementText{
+    font-size: large;
+    font-weight: bold;
+}
 /*drawPlayReviewBoard element*/
 .selectCategoryButton{
     width: 50px ;
